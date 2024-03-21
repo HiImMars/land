@@ -46,7 +46,10 @@
     $pixel_id = $_SESSION['pixel_id'];
     ?>
 		<div class="panel">
-            <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=' . $pixel_id . '&ev=Lead&noscript=1" />
+            <?php if (!empty($pixel_id)) {
+            echo '<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=' . $pixel_id . '&ev=Lead&noscript=1" />';
+        }
+        ?>
 			<div class="panel-body">
 				<div class="thank-you">Ďakujem! Vaša objednávka <span class="thank-you__order-id">№<?php echo $_SESSION['conversion_id']; ?></span> úspešne prijatý!</div>
                     <div class="we-will-call-you we-will-call-you__timer" style="display: none;">
