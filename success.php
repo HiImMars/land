@@ -14,7 +14,18 @@
 
 <body data-long-time-text="7 минут">
 	<div class="content">
+        <?php
+    session_start();
+    $name = $_SESSION['name'] ?? '';
+    $phone = $_SESSION['phone'] ?? '';
+    $id = $_SESSION['id'] ?? '';
+    $pixel_id = $_SESSION['pixel_id'];
+    ?>
 		<div class="panel">
+            <?php if (!empty($pixel_id)) {
+            echo '<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=' . $pixel_id . '&ev=Lead&noscript=1" />';
+        }
+        ?>
 			<div class="panel-body">
 				<div class="thank-you">Ďakujem! Vaša objednávka <span class="thank-you__order-id">№<?php echo $_SESSION['conversion_id']; ?></span> úspešne prijatý!</div>
                     <div class="we-will-call-you we-will-call-you__timer" style="display: none;">
