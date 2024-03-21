@@ -1,11 +1,9 @@
 <?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Получаем данные из формы
     $name = $_POST['name'];
     $phone = $_POST['phone'];
 
-    // Добавляем обязательные параметры
     $data = [
         'method' => "addRequest",
         'id' => "23312dsdasad21d2",
@@ -20,13 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ]
     ];
 
-    // Преобразуем данные в JSON
     $json_data = json_encode($data);
 
-    // Инициализируем cURL
     $curl = curl_init();
 
-    // Устанавливаем параметры запроса
     curl_setopt_array($curl, array(
         CURLOPT_URL => 'https://api.lagoon.me/api/outsource',
         CURLOPT_RETURNTRANSFER => true,
@@ -42,29 +37,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ),
     ));
 
-    // Выполняем запрос
     $response = curl_exec($curl);
 
-    // Закрываем cURL соединение
     curl_close($curl);
 
-    // Проверяем ответ от сервера
     if ($response === false) {
-        // Если возникла ошибка при выполнении запроса, возвращаем ошибку
         http_response_code(500); // Internal Server Error
         echo json_encode(array("error" => "Failed to send request"));
         exit();
     }
 
-    
-
-    // Выводим ответ на экран
     echo $response;
     header('Location: success.php');
     exit();
 
 } else {
-    // Если метод запроса не POST, возвращаем ошибку
     http_response_code(405); // Method Not Allowed
     echo "Error: Метод запроса должен быть POST.";
     exit();

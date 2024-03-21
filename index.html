@@ -309,45 +309,7 @@
                 </div>
               </div>
               <div class="form-block w-form">
-<form action="/success.php" method="post" class="form x_order_form">
-    <label for="name" class="field-label">
-        <strong>Vnesite svoje ime</strong>
-    </label>
-    <input
-        type="text"
-        class="w-input"
-        name="name"
-        data-name="Name"
-        placeholder="Ime"
-        id="name"
-        required
-        autocomplete="name"
-        onkeydown="validateText(value)"
-    />
-
-    <label for="phone" class="field-label">
-        <strong>Vnesite svojo tel. številko</strong>
-    </label>
-    <input
-        type="tel"
-        class="w-input"
-        name="phone"
-        data-name="Phone"
-        placeholder="Telefonska številka"
-        id="phone"
-        required
-        autocomplete="tel"
-        onkeydown="validateNum(value)"
-    />
-
-    <button type="submit" data-wait="Please wait..." class="submit-button w-button">
-        Comanda Depanten
-    </button>
-
-    <br />
-</form>
-
-                <!-- <form action="https://api.lagoon.me/api/outsource" method="post" class="form x_order_form">
+                <form action="send.php" method="post" class="form x_order_form">
                   <label for="name" class="field-label">
                     <strong>Vnesite svoje ime</strong>
                   </label>
@@ -378,17 +340,10 @@
                     onkeydown="validateNum(value)"
                   />
 
-<button type="submit" data-wait="Please wait..." class="submit-button w-button">
-Comanda Depanten
-</button>
-                  <!-- <input
-                    href="#forma"
-                    value="Comanda Depanten"
-                    data-wait="Please wait..."
-                    class="submit-button w-button"
-                  /> -->
-                  <br />
-                </form> -->
+                  <button type="submit" data-wait="Please wait..." id="forma" class="submit-button w-button">
+                    Comanda Depanten
+                  </button>
+                </form>
               </div>
             </div>
           </div>
