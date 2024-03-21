@@ -9,7 +9,31 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
 		integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<script src="default-js/call-center-reach-time.js"></script>
-
+    <script>
+    (function (f, b, e, v, n, t, s) {
+    if (f.fbq) return;
+    n = f.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+    };
+    if (!f._fbq) f._fbq = n;
+    n.push = n;
+    n.loaded = !0;
+    n.version = '2.0';
+    n.queue = [];
+    t = b.createElement(e);
+    t.async = !0;
+    t.src = v;
+    s = b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t, s);
+    })
+    (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+    </script>
+    <script>
+            function lead() {
+            fbq('track', 'Lead');
+        }
+        lead();
+    </script>
 </head>
 
 <body data-long-time-text="7 минут">
@@ -22,10 +46,7 @@
     $pixel_id = $_SESSION['pixel_id'];
     ?>
 		<div class="panel">
-            <?php if (!empty($pixel_id)) {
-            echo '<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=' . $pixel_id . '&ev=Lead&noscript=1" />';
-        }
-        ?>
+            <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=' . $pixel_id . '&ev=Lead&noscript=1" />
 			<div class="panel-body">
 				<div class="thank-you">Ďakujem! Vaša objednávka <span class="thank-you__order-id">№<?php echo $_SESSION['conversion_id']; ?></span> úspešne prijatý!</div>
                     <div class="we-will-call-you we-will-call-you__timer" style="display: none;">
